@@ -25,7 +25,7 @@ def evaluate_with_torch(X, y, W1, b1, W2, b2):
     logits = model(X_torch)
     loss = nn.functional.cross_entropy(logits, y_torch)
 
-    # Диференціювання.
+    # Диференціювання
     loss.backward()
 
     gradients = {
