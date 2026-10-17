@@ -6,7 +6,7 @@ def initialize_parameters():
 
     rng = np.random.default_rng(0)
 
-    # 1 шар - 4 вхідні ознаки -> 8 нейронів.
+    # 1 шар - 4 вхідні ознаки -> 8 нейронів
     W1 = rng.normal(
         loc=0.0,
         scale=np.sqrt(2.0 / 4),
@@ -14,7 +14,7 @@ def initialize_parameters():
     ).astype(np.float64)
     b1 = np.zeros(8, dtype=np.float64)
 
-    # 2 шар - 8 нейронів -> 3 вихідні класи.
+    # 2 шар - 8 нейронів -> 3 вихідні класи
     W2 = rng.normal(
         loc=0.0,
         scale=np.sqrt(2.0 / (8 + 3)),
@@ -24,9 +24,8 @@ def initialize_parameters():
 
     return W1, b1, W2, b2
 
-
+# forward виконує прямий прохід нейронної мережі
 def forward(X, W1, b1, W2, b2):
-    """Виконує прямий прохід нейронної мережі."""
 
     # 1 лінійний шар
     Z1 = X @ W1 + b1
