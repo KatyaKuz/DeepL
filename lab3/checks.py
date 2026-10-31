@@ -32,7 +32,7 @@ def check_split(rows):
             fs = [r["file"] for r in rows if r["label"] == c and r["part"] == part]
             got = (len(fs), sum(int(f.split(".")[0]) for f in fs))
             ok &= (got == exp)
-            cells.append(f"{got[0]}/{got[1]} {'✓' if got == exp else '✗ (очікувано %s)' % (exp,)}")
+            cells.append(f"{got[0]}/{got[1]} {'збігається' if got == exp else 'НЕ ЗБІГАЄТЬСЯ (очікувано %s)' % (exp,)}")
         print(f"{c:10s} | " + " | ".join(cells))
     sets = {p: {r["file"] for r in rows if r["part"] == p} for p in PARTS}
     disjoint = all(not (sets[a] & sets[b]) for a, b in itertools.combinations(PARTS, 2))
