@@ -1,0 +1,77 @@
+{
+  "regime": "scratch",
+  "seed": 1,
+  "epochs": 8,
+  "steps_per_epoch": 38,
+  "steps_total": 304,
+  "batch_size": 32,
+  "eval_batch_size": 64,
+  "dtype": "float32",
+  "img_size": 160,
+  "transforms": {
+    "train": "RandomResizedCrop(160,scale=(0.7,1.0))->RandomHorizontalFlip()->ToTensor->Normalize",
+    "eval": "Resize((160,160))->ToTensor->Normalize",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "model": "resnet18",
+  "weights": null,
+  "trainable": null,
+  "eval_modules": [],
+  "optimizer": {
+    "name": "AdamW",
+    "weight_decay": 0.0001,
+    "defaults": "betas=(0.9,0.999), eps=1e-8, amsgrad=False",
+    "groups": [
+      {
+        "lr": 0.003,
+        "n_params": 11179590
+      }
+    ]
+  },
+  "loss": "CrossEntropyLoss(mean)",
+  "bn": "momentum=0.1, eps=1e-5 (за замовчуванням)",
+  "loader": {
+    "train": "bs=32, shuffle=True, drop_last=False, num_workers=0",
+    "eval": "bs=64, shuffle=False, num_workers=0"
+  },
+  "no_lr_scheduler_clip_amp_smoothing_classweights_earlystop": true,
+  "git_commit": "e87b66c20fd3cf713caed194aeaf860237ed5c29",
+  "git_dirty": false,
+  "split_sha256": "43ea940908e7ce0bc48bf9ea7493ca083f69a8e051600cd8b0c436383f805b0a",
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "torch": "2.15.0+cpu",
+  "torchvision": "0.29.2+cpu",
+  "device": "cpu",
+  "train_loss": [
+    1.6934014717737833,
+    1.2090672143300374,
+    1.1354209756851197,
+    1.1322397073109944,
+    1.0913681825002035,
+    1.0666317335764568,
+    1.0589522393544515,
+    0.9477997207641602
+  ],
+  "val_f1": [
+    0.31504782505169215,
+    0.39213833753070726,
+    0.5305544372576744,
+    0.4479898511755817,
+    0.5494809956681749,
+    0.5626372472843196,
+    0.5271469923531854,
+    0.5649422968875212
+  ],
+  "train_seconds": 193.01150529948063,
+  "total_seconds_with_validation": 279.11746220011264,
+  "train_seconds_note": "train_seconds = лише цикл навчання (без валідації)"
+}

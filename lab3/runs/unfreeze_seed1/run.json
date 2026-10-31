@@ -1,0 +1,90 @@
+{
+  "regime": "unfreeze",
+  "seed": 1,
+  "epochs": 8,
+  "steps_per_epoch": 38,
+  "steps_total": 304,
+  "batch_size": 32,
+  "eval_batch_size": 64,
+  "dtype": "float32",
+  "img_size": 160,
+  "transforms": {
+    "train": "RandomResizedCrop(160,scale=(0.7,1.0))->RandomHorizontalFlip()->ToTensor->Normalize",
+    "eval": "Resize((160,160))->ToTensor->Normalize",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "model": "resnet18",
+  "weights": "IMAGENET1K_V1",
+  "trainable": [
+    "layer4",
+    "fc"
+  ],
+  "eval_modules": [
+    "conv1",
+    "bn1",
+    "layer1",
+    "layer2",
+    "layer3"
+  ],
+  "optimizer": {
+    "name": "AdamW",
+    "weight_decay": 0.0001,
+    "defaults": "betas=(0.9,0.999), eps=1e-8, amsgrad=False",
+    "groups": [
+      {
+        "lr": 0.003,
+        "n_params": 3078
+      },
+      {
+        "lr": 0.0003,
+        "n_params": 8393728
+      }
+    ]
+  },
+  "loss": "CrossEntropyLoss(mean)",
+  "bn": "momentum=0.1, eps=1e-5 (за замовчуванням)",
+  "loader": {
+    "train": "bs=32, shuffle=True, drop_last=False, num_workers=0",
+    "eval": "bs=64, shuffle=False, num_workers=0"
+  },
+  "no_lr_scheduler_clip_amp_smoothing_classweights_earlystop": true,
+  "git_commit": "e87b66c20fd3cf713caed194aeaf860237ed5c29",
+  "git_dirty": false,
+  "split_sha256": "43ea940908e7ce0bc48bf9ea7493ca083f69a8e051600cd8b0c436383f805b0a",
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "torch": "2.15.0+cpu",
+  "torchvision": "0.29.2+cpu",
+  "device": "cpu",
+  "train_loss": [
+    0.5553278531630834,
+    0.16987208624680836,
+    0.13800711162388324,
+    0.1341438537929207,
+    0.1365663145730893,
+    0.06697897319992384,
+    0.08811684229100744,
+    0.09497388156751792
+  ],
+  "val_f1": [
+    0.8931511278443619,
+    0.9001419710163473,
+    0.8908510725937093,
+    0.8769052783074297,
+    0.8969372291622707,
+    0.8859348077959347,
+    0.8911448876468246,
+    0.8670705948101559
+  ],
+  "train_seconds": 94.29164469987154,
+  "total_seconds_with_validation": 172.82385560008697,
+  "train_seconds_note": "train_seconds = лише цикл навчання (без валідації)"
+}
