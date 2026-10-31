@@ -1,0 +1,3 @@
+runs/*/model.pt
+__pycache__/
+.venv/
