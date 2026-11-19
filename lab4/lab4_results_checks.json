@@ -1,0 +1,308 @@
+{
+  "split_control": {
+    "train": {
+      "n": 1200,
+      "sum": 11993084,
+      "expected_n": 1200,
+      "expected_sum": 11993084,
+      "ok": true
+    },
+    "test": {
+      "n": 1502,
+      "sum": 33351444,
+      "expected_n": 1502,
+      "expected_sum": 33351444,
+      "ok": true
+    }
+  },
+  "model": {
+    "regime": "frozen",
+    "seed": 3,
+    "img_size": 160
+  },
+  "export_seconds": 0.48477169999387115,
+  "export_check": {
+    "max_abs_logit_diff": 1.52587890625e-05,
+    "class_agreement": 1.0,
+    "macro_f1_torch": 0.8892040654693513,
+    "macro_f1_onnx_fp32": 0.8892040654693513,
+    "n_conv": 20,
+    "n_batchnorm": 0,
+    "export_seconds": 0.48477169999387115
+  },
+  "calibration_control": {
+    "n": 200,
+    "sum": 1921470,
+    "classes": {
+      "buildings": 40,
+      "forest": 35,
+      "glacier": 36,
+      "mountain": 33,
+      "sea": 29,
+      "street": 27
+    },
+    "ok": true
+  },
+  "channel_ranges": {
+    "n_conv": 20,
+    "top3": [
+      {
+        "node": "/conv1/Conv",
+        "shape": [
+          64,
+          3,
+          7,
+          7
+        ],
+        "r": 6.668345928192139,
+        "bits": 2.7373289477469736
+      },
+      {
+        "node": "/layer3/layer3.1/conv2/Conv",
+        "shape": [
+          256,
+          256,
+          3,
+          3
+        ],
+        "r": 5.895690441131592,
+        "bits": 2.55966077633789
+      },
+      {
+        "node": "/layer3/layer3.0/downsample/downsample.0/Conv",
+        "shape": [
+          256,
+          128,
+          1,
+          1
+        ],
+        "r": 4.920561790466309,
+        "bits": 2.2988230403714724
+      }
+    ],
+    "median_r": 3.4448530673980713,
+    "median_bits": 1.7844424492701094,
+    "all": [
+      {
+        "node": "/conv1/Conv",
+        "shape": [
+          64,
+          3,
+          7,
+          7
+        ],
+        "r": 6.668345928192139,
+        "bits": 2.7373289477469736
+      },
+      {
+        "node": "/layer1/layer1.0/conv1/Conv",
+        "shape": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "r": 2.033560276031494,
+        "bits": 1.024007753840584
+      },
+      {
+        "node": "/layer1/layer1.0/conv2/Conv",
+        "shape": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "r": 2.9204742908477783,
+        "bits": 1.5462026846836028
+      },
+      {
+        "node": "/layer1/layer1.1/conv1/Conv",
+        "shape": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "r": 2.1701555252075195,
+        "bits": 1.1177984377874708
+      },
+      {
+        "node": "/layer1/layer1.1/conv2/Conv",
+        "shape": [
+          64,
+          64,
+          3,
+          3
+        ],
+        "r": 3.0107791423797607,
+        "bits": 1.5901368821310606
+      },
+      {
+        "node": "/layer2/layer2.0/conv1/Conv",
+        "shape": [
+          128,
+          64,
+          3,
+          3
+        ],
+        "r": 2.5673861503601074,
+        "bits": 1.3603003022678595
+      },
+      {
+        "node": "/layer2/layer2.0/conv2/Conv",
+        "shape": [
+          128,
+          128,
+          3,
+          3
+        ],
+        "r": 3.0219762325286865,
+        "bits": 1.5954923139283415
+      },
+      {
+        "node": "/layer2/layer2.0/downsample/downsample.0/Conv",
+        "shape": [
+          128,
+          64,
+          1,
+          1
+        ],
+        "r": 4.39759635925293,
+        "bits": 2.136715190089113
+      },
+      {
+        "node": "/layer2/layer2.1/conv1/Conv",
+        "shape": [
+          128,
+          128,
+          3,
+          3
+        ],
+        "r": 2.244866371154785,
+        "bits": 1.1666295690599113
+      },
+      {
+        "node": "/layer2/layer2.1/conv2/Conv",
+        "shape": [
+          128,
+          128,
+          3,
+          3
+        ],
+        "r": 4.081693649291992,
+        "bits": 2.029167905243535
+      },
+      {
+        "node": "/layer3/layer3.0/conv1/Conv",
+        "shape": [
+          256,
+          128,
+          3,
+          3
+        ],
+        "r": 2.4244701862335205,
+        "bits": 1.2776695129887243
+      },
+      {
+        "node": "/layer3/layer3.0/conv2/Conv",
+        "shape": [
+          256,
+          256,
+          3,
+          3
+        ],
+        "r": 3.755075454711914,
+        "bits": 1.908841897631686
+      },
+      {
+        "node": "/layer3/layer3.0/downsample/downsample.0/Conv",
+        "shape": [
+          256,
+          128,
+          1,
+          1
+        ],
+        "r": 4.920561790466309,
+        "bits": 2.2988230403714724
+      },
+      {
+        "node": "/layer3/layer3.1/conv1/Conv",
+        "shape": [
+          256,
+          256,
+          3,
+          3
+        ],
+        "r": 3.0322108268737793,
+        "bits": 1.6003700662765168
+      },
+      {
+        "node": "/layer3/layer3.1/conv2/Conv",
+        "shape": [
+          256,
+          256,
+          3,
+          3
+        ],
+        "r": 5.895690441131592,
+        "bits": 2.55966077633789
+      },
+      {
+        "node": "/layer4/layer4.0/conv1/Conv",
+        "shape": [
+          512,
+          256,
+          3,
+          3
+        ],
+        "r": 4.079845428466797,
+        "bits": 2.0285144944005182
+      },
+      {
+        "node": "/layer4/layer4.0/conv2/Conv",
+        "shape": [
+          512,
+          512,
+          3,
+          3
+        ],
+        "r": 4.1692914962768555,
+        "bits": 2.059802241786903
+      },
+      {
+        "node": "/layer4/layer4.0/downsample/downsample.0/Conv",
+        "shape": [
+          512,
+          256,
+          1,
+          1
+        ],
+        "r": 4.499878406524658,
+        "bits": 2.1698860181814354
+      },
+      {
+        "node": "/layer4/layer4.1/conv1/Conv",
+        "shape": [
+          512,
+          512,
+          3,
+          3
+        ],
+        "r": 4.264753818511963,
+        "bits": 2.0924624648583046
+      },
+      {
+        "node": "/layer4/layer4.1/conv2/Conv",
+        "shape": [
+          512,
+          512,
+          3,
+          3
+        ],
+        "r": 3.1346306800842285,
+        "bits": 1.6482954757553046
+      }
+    ]
+  }
+}
